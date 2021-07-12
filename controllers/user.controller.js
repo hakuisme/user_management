@@ -9,9 +9,7 @@ class userController {
     }
     async detail(req,res,next) {
         let id = req.params.id
-        console.log(id)
         const user =await  User.findById(id).select("-password").populate("roles", "-__v").exec()
-        console.log(user)
         if(user != null) {
            
             let authorities = [];
@@ -44,7 +42,6 @@ class userController {
         
         if(Object.keys(objUpdate).length > 0) {
             updated = await User.findOneAndUpdate({id:id}, objUpdate)
-            console.log(updated)
         }
         res.status(201).json({ code: 201, data:user})
     }
