@@ -129,6 +129,7 @@ class authController {
                     }
                     res.status(200).json({
                       code: 200,
+                      success:true,
                       token: token,
                       refreshtoken:refreshToken,
                       roles:authorities

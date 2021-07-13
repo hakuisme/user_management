@@ -5,6 +5,9 @@ const AppError = require('./utils/errorHandler')
 const app = express()
 const globalErrHandler = require('./controllers/error.controller')
 
+const swaggerJsdoc = require("swagger-jsdoc"),
+  swaggerUi = require("swagger-ui-express");
+
 // Allow Cross-Origin requests
 app.use(cors())
 
@@ -21,6 +24,11 @@ app.use(express.urlencoded({limit:'50mb', extended: true }))
 // Routes
 // const route = express.Router()
 // app.use(checkInKey)
+
+const swaggerOptions = require('./config/swagger').swopt;
+const specs = swaggerJsdoc(swaggerOptions);
+// console.log(specs)
+
 app.get('', (req,res) => {
   let user_ip
 
@@ -32,6 +40,11 @@ app.get('', (req,res) => {
   }
 })
 app.use('/', routes)
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(specs, { explorer: true })
+);
 
 // handle undefined Routes
 app.use('*', (req, res, next) => {

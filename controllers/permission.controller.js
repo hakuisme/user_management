@@ -17,7 +17,7 @@ class permissionController{
     async addPermission(req,res,next) {
         let {module_name, methode_name,roles} = req.body
 
-        if(! module_name == '' && ! methode_name) {
+        if((! module_name || module_name == '') || (! methode_name || methode_name == '')) {
             return next(new errHandler(400, false,'Nama Module atau nama methode harus diisi'),req, res, next)
         }
 
@@ -94,7 +94,6 @@ class permissionController{
     async deletePermission(req,res,next){
         let {id} = req.body
 
-        
         try {
             let updated = await Permission.findOneAndDelete({_id:id})
             if(updated   != null )
