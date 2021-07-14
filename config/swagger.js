@@ -2,10 +2,10 @@ const options = {
     definition: {
       openapi: "3.0.0",
       info: {
-        title: "LogRocket Express API with Swagger",
+        title: "User Management API",
         version: "0.1.0",
         description:
-          "This is a simple CRUD API application made with Express and documented with Swagger",
+          "This is a simple CRUD API For User Management",
         license: {
           name: "",
           url: "",
@@ -18,7 +18,7 @@ const options = {
       },
       servers: [
         {
-          url: "https://momofin.com/v1/auth/",
+          url: "",
           description: 'Development server',
         },
       ],
