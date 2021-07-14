@@ -41,7 +41,7 @@ app.get('', (req,res) => {
 })
 app.use('/v1/auth/', routes)
 app.use(
-  "/api-docs",
+  "/v1/auth/docs",
   swaggerUi.serve,
   swaggerUi.setup(specs, { explorer: true })
 );
