@@ -39,7 +39,7 @@ app.get('', (req,res) => {
       user_ip = req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || req.connection.remoteAddress || req.socket.remoteAddress || req.connection.socket.remoteAddress;
   }
 })
-app.use('/', routes)
+app.use('/v1/auth/', routes)
 app.use(
   "/api-docs",
   swaggerUi.serve,
