@@ -3,17 +3,17 @@
 NodeJs (Express) User Management API with mongodb
 
 ## Feature
-1.User Module
+1. User Module
     - Register
     - Login
     - Forgot Password
     - Reset Password
-2.Role Module (CRUD)
-3.Permission Module (CRUD)
+2. Role Module (CRUD)
+3. Permission Module (CRUD)
 
-todo
-implement auth middleware
-.....
+# todo
+- [ ] implement auth middleware
+- [ ] .....
 
 # Installation
 * Run npm install or yarn install melalui 'command-promt' di windows atau terminal
