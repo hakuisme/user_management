@@ -18,7 +18,7 @@ const options = {
       },
       servers: [
         {
-          url: "http://localhost:8031",
+          url: "https://momofin.com/v1/auth/",
           description: 'Development server',
         },
       ],
