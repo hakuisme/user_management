@@ -105,7 +105,7 @@ router.post('/add', roleController.addRole)
 
 /**
  * @swagger
- * /roles/update:
+ * /roles/edit:
  *   post:
  *     summary: Update roles.
  *     description: Mengubah Data Pemission user, salah satu field wajib di-isi.

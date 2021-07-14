@@ -44,7 +44,7 @@ class roleController{
         if(oldname == '') {
             return next(new errHandler(400, false,'Nama Role Lama harus diisi'),req, res, next)
         } else {
-            let check = await Roles.find({name:oldname}).countDocument()
+            let check = await Roles.find({name:oldname}).countDocuments()
             if(check <= 0) {
                 return next(new errHandler(400, false,'Nama Role Lama tidak terdaftar'),req, res, next)
             }
