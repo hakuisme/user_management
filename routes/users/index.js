@@ -292,7 +292,7 @@ router.post('/reset_password', authController.resetPassword)
  *                 type: boolean
  *                data:
  *                 type: array
- *                 $ref: '#/components/schemas/User'               
+ *                 $ref: '#/components/schemas/Users'               
 */
 router.get('/all', usersController.getAll)
 
@@ -317,7 +317,7 @@ router.get('/all', usersController.getAll)
  *                 type: boolean
  *                data:
  *                 type: array
- *                 $ref: '#/components/schemas/User' 
+ *                 $ref: '#/components/schemas/Users' 
  * 
  *                      
 */
@@ -362,7 +362,7 @@ router.get('/:id', usersController.detail)
  *                 type: boolean
  *                data:
  *                 type: object
- *                 $ref: '#/components/schemas/User' 
+ *                 $ref: '#/components/schemas/Users' 
  * 
  *                      
 */
