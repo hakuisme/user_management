@@ -277,7 +277,7 @@ router.post('/reset_password', authController.resetPassword)
  *   get:
  *     summary: Get data user.
  *     description: Menampilkan List  user .
- *     tags: [Permission]
+ *     tags: [Users]
  *     responses:
  *       201:
  *         description: A list of role's permissions.
@@ -316,21 +316,103 @@ router.get('/all', usersController.getAll)
  *                success:
  *                 type: boolean
  *                data:
- *                 type: object
- *                 properties:
- *                   id:
- *                      type: string
- *                   fullname:
- *                      type: string
- *                   email:
- *                      type: string
- *                   roles:
- *                      type: array
+ *                 type: array
+ *                 $ref: '#/components/schemas/User' 
  * 
  *                      
 */
 router.get('/:id', usersController.detail)
 
+
+/**
+ * @swagger
+ * /users/update:
+ *   post:
+ *     summary: Update single user data.
+ *     description: Mengubah data  user berdasarkan id nya , selain id, minimal ada satu field yang terisi.
+ *     tags: [Users]
+ *     requestBody:
+ *       required:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             required:
+ *               - id
+ *             type: object
+ *             properties:
+ *               id: 
+ *                  type: string
+ *               fullname: 
+ *                  type: string
+ *               email: 
+ *                  type: string
+ *               phone_number: 
+ *                  type: string
+ *     responses:
+ *       201:
+ *         description: Update single User success.
+ *         content:
+ *           application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                id:
+ *                 type: string
+ *                success:
+ *                 type: boolean
+ *                data:
+ *                 type: object
+ *                 $ref: '#/components/schemas/User' 
+ * 
+ *                      
+*/
+router.post('/update', usersController.update)
+
+/**
+ * @swagger
+ * /users/password:
+ *   post:
+ *     summary: Update password user.
+ *     description: Mengubah passord berdasarkan id user.
+ *     tags: [Users]
+ *     requestBody:
+ *       required:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             required:
+ *               - id
+ *               - old_password
+ *               - new_password
+ *               - new_password_confirm
+ *             type: object
+ *             properties:
+ *               id: 
+ *                  type: string
+ *               old_password: 
+ *                  type: string
+ *               new_password: 
+ *                  type: string
+ *               new_password_confirm: 
+ *                  type: string
+ *     responses:
+ *       201:
+ *         description: Password berhasil diubah.
+ *         content:
+ *           application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                id:
+ *                 type: string
+ *                success:
+ *                 type: boolean
+ *                message:
+ *                 type:string
+ * 
+ *                      
+*/
+router.post('/password', usersController.updatePassword)
 
 
 module.exports = router
